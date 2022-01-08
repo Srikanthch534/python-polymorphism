@@ -1,0 +1,368 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Dec 30 19:10:33 2021
+
+@author: pc
+"""
+'''
+#polymorphism
+#overidding & overloading
+
+#overiding a variable
+class parent:
+    name='scott'
+class child(parent):
+    name='david' 
+    
+obj=child()
+print(obj.name) #david   
+
+class parent:
+    name='scott'
+    
+class child(parent):
+    pass
+obj=child()
+print(obj.name)    #scott
+
+#overidding meethods
+class bank:
+    def rateofintrest(self):
+        return 0
+class icici(bank):
+    def rateofintrest(self):
+        return 10
+    
+obj=icici()
+print(obj.rateofintrest()) #10
+obj1=bank()
+print(obj1.rateofintrest()) #0
+
+#method overloading
+
+class human:
+    def sayhello(self,name=None):
+        if name is not None:
+            print('hello'+name)
+        else:
+            print('hello')
+obj=human()
+obj.sayhello() #hello
+obj.sayhello('srikanth')   #hellosrikanth  
+
+
+class bird:
+    def fly(self,name=None):
+        if name=='parrot':
+            print('can fly')
+        if  name=='penguine':
+            print('cant fly')
+        if name is None:
+            print('no input')
+            
+obj=bird()
+obj.fly() #no input
+obj.fly('parrot') #can fly
+obj.fly('penguine')  #cant fly
+
+'''
+
+
+'''
+#one functionality with differnt behaviours is called polymorphism
+
+#sleep(100)
+#sleep(100,200)
+
+#sum(int a)
+#sum(int a,b)
+
+
+
+
+
+#ex-1:overiding variable
+#if we are overidding then our class variable executed.
+class parent:
+    name='ratan'
+    
+class child(parent):
+    name='sri'
+c=child()
+print(c.name) #sri   
+    
+#if we are not overiding then parent class variable executed
+
+class parent:
+    name='ratan'
+class child(parent):
+    pass
+
+c=child()
+print(c.name)#ratan
+
+
+
+
+
+#ex-2:overidding methods
+class parent:
+    def mrg(self):
+        print('black girl')
+class child(parent):
+    def mrg(self):
+        print('red girl')
+c=child()
+c.mrg()       #red girl  
+
+
+
+#ex-3:two diffent classes
+class parrot:
+    def fly(self):
+        print('parrot can fly')
+        
+    def swim (self):
+        print('parrot cant swim')
+class penguine:
+    def fly(self):
+        print('penguine cant fly')
+    def swim(self):
+        print('penguine can swim')     
+        
+#commom interface
+def test(ref):
+    ref.fly()
+    ref.swim()
+#creating the objects
+p=parrot()
+pen=penguine()
+#passing the objcts
+test(p)        
+test(pen)
+
+parrot can fly
+parrot cant swim
+penguine cant fly
+penguine can swim
+    
+
+
+class unicorn:
+    def speed(self):
+        print('unicorn speed 150kmph')
+class splender:
+    def speed(self):
+        print('splender speed is 100kmph')
+
+#common interface
+def speed_test(ref):
+    ref.speed()
+#creating the objects
+u=unicorn()
+sp=splender()
+#passing the objects
+speed_test(u) #unicorn speed 150kmph
+speed_test(sp) #splender speed is 100kmph
+       
+'''
+
+'''
+#polymorphism
+#1.reduce code size
+#2.flxible
+
+class messenger:
+    def use_keyboard(self):
+        print('using keyboard')
+    def send_message(self):
+        print('text message is sent')
+    def recive_message(self):
+        print('text message is recived')
+        
+class Whatsapp(messenger):
+    def send_message(self):
+        print('text,video & files are sent by wa')
+    def recive_message(self):
+        print('text,video & files are recived by wa')
+        
+                
+class facebook(messenger):
+    def send_message(self):
+        print('text,video & files are sent by fb')
+    def recive_message(self):
+        print('text,video & files are recived by fb')
+        
+class instagram(messenger):
+    def send_message(self):
+        print('text,video & files are sent by insta')
+    def recive_message(self):
+        print('text,video & files are recived by insta')
+        
+wa=Whatsapp()
+fb=facebook()
+im=instagram()
+
+wa.use_keyboard()
+wa.send_message()
+wa.recive_message()
+
+fb.use_keyboard()
+fb.send_message()
+fb.recive_message()
+
+im.use_keyboard()
+im.send_message()
+im.recive_message()
+        
+
+
+using keyboard
+text,video & files are sent by wa
+text,video & files are recived by wa
+using keyboard
+text,video & files are sent by fb
+text,video & files are recived by fb
+using keyboard
+text,video & files are sent by insta
+text,video & files are recived by insta
+        
+                
+'''        
+        
+'''                
+class messenger:
+    def use_keyboard(self):
+        print('using keyboard')
+    def send_message(self):
+        print('text message is sent')
+    def recive_message(self):
+        print('text message is recived')
+        
+class Whatsapp(messenger):
+    def send_message(self):
+        print('text,video & files are sent by wa')
+    def recive_message(self):
+        print('text,video & files are recived by wa')
+        
+                
+class facebook(messenger):
+    def send_message(self):
+        print('text,video & files are sent by fb')
+    def recive_message(self):
+        print('text,video & files are recived by fb')
+        
+class instagram(messenger):
+    def send_message(self):
+        print('text,video & files are sent by insta')
+    def recive_message(self):
+        print('text,video & files are recived by insta')
+ #common interface
+def use_apps(ref):
+    ref.use_keyboard()
+    ref.send_message()
+    ref.recive_message()        
+ 
+    
+#creating objects 
+wa=Whatsapp()
+fb=facebook()
+im=instagram()
+    
+
+#passing objects
+use_apps(wa)
+use_apps(fb)
+use_apps(im)
+
+
+using keyboard
+text,video & files are sent by wa
+text,video & files are recived by wa
+using keyboard
+text,video & files are sent by fb
+text,video & files are recived by fb
+using keyboard
+text,video & files are sent by insta
+text,video & files are recived by insta
+
+'''
+
+
+'''
+class messenger:
+    def use_keyboard(self):
+        print('using keyboard')
+    def send_message(self):
+        print('text message is sent')
+    def recive_message(self):
+        print('text message is recived')
+        
+class Whatsapp(messenger):
+    def send_message(self):
+        print('text,video & files are sent by wa')
+    def recive_message(self):
+        print('text,video & files are recived by wa')
+    def send_livelocation(self):
+        print('live location sent by wa')
+        
+                
+class facebook(messenger):
+    def send_message(self):
+        print('text,video & files are sent by fb')
+    def recive_message(self):
+        print('text,video & files are recived by fb')
+    def use_built_apps(self):
+        print('using builtin apps by fb')
+        
+class instagram(messenger):
+    def send_message(self):
+        print('text,video & files are sent by insta')
+    def recive_message(self):
+        print('text,video & files are recived by insta')
+        
+    def add_filters(self):
+        print('adding filters')
+ #common interface
+def use_apps(ref):
+    ref.use_keyboard()
+    ref.send_message()
+    ref.recive_message()  
+    if type(ref)==Whatsapp:
+        ref.send_livelocation()
+    if type(ref)==facebook:
+        ref.use_built_apps()
+    if type(ref)==instagram:
+        ref.add_filters()
+        
+ 
+    
+#creating objects 
+wa=Whatsapp()
+fb=facebook()
+im=instagram()
+    
+
+#passing objects
+use_apps(wa)
+use_apps(fb)
+use_apps(im)
+
+
+
+
+using keyboard
+text,video & files are sent by wa
+text,video & files are recived by wa
+live location sent by wa
+using keyboard
+text,video & files are sent by fb
+text,video & files are recived by fb
+using builtin apps by fb
+using keyboard
+text,video & files are sent by insta
+text,video & files are recived by insta
+adding filters
+
+
+'''
